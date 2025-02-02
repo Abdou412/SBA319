@@ -35,6 +35,10 @@ app
     }).then((book) => res.send(book));
   });
 
+app.route("/books/:id").delete((req, res) => {
+  Book.findByIdAndDelete(req.params.id).then((book) => res.send(book));
+});
+
 app
   .route("/users")
   .get((req, res) => {
@@ -57,6 +61,10 @@ app
     }).then((user) => res.send(user));
   });
 
+app.route("/users/:id").delete((req, res) => {
+  User.findByIdAndDelete(req.params.id).then((user) => res.send(user));
+});
+
 app
   .route("/theaters")
   .get((req, res) => {
@@ -78,6 +86,10 @@ app
       new: true,
     }).then((theater) => res.send(theater));
   });
+
+app.route("/theaters/:id").delete((req, res) => {
+  Theater.findByIdAndDelete(req.params.id).then((theater) => res.send(theater));
+});
 
 app.listen(port, () => {
   console.log(`Server is running on :${port}`);

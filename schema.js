@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 
 const bookSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  author: { type: String, required: true },
+  name: { type: String, required: true, index: true }, //using undex
 });
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true, index: true }, //using undex
   password: { type: String, required: true },
 });
 
 const theaterSchema = new mongoose.Schema({
-  theaterId: { type: Number, required: true },
+  theaterId: { type: Number, required: true, index: true }, //using undex
   location: {
     address: String,
     city: String,
