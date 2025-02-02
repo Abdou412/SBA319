@@ -11,8 +11,7 @@ mongoose.connection.on("connected", () => {
   console.log(`hi abdou, you are connected on ${mongoose.connection.name}!`);
 });
 
-app.use(express.json()); 
-
+app.use(express.json());
 
 app
   .route("/books")
@@ -22,7 +21,19 @@ app
   .post((req, res) => {
     new Book(req.body).save().then((book) => res.send(book));
   });
-  
+
+app
+  .route("/books/:id")
+  .patch((req, res) => {
+    Book.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+      (book) => res.send(book)
+    );
+  })
+  .put((req, res) => {
+    Book.findOneAndReplace({ _id: req.params.id }, req.body, {
+      new: true,
+    }).then((book) => res.send(book));
+  });
 
 app
   .route("/users")
@@ -33,6 +44,18 @@ app
     new User(req.body).save().then((user) => res.send(user));
   });
 
+app
+  .route("/users/:id")
+  .patch((req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+      (user) => res.send(user)
+    );
+  })
+  .put((req, res) => {
+    User.findOneAndReplace({ _id: req.params.id }, req.body, {
+      new: true,
+    }).then((user) => res.send(user));
+  });
 
 app
   .route("/theaters")
@@ -41,6 +64,19 @@ app
   })
   .post((req, res) => {
     new Theater(req.body).save().then((theater) => res.send(theater));
+  });
+
+app
+  .route("/theaters/:id")
+  .patch((req, res) => {
+    Theater.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+      (theater) => res.send(theater)
+    );
+  })
+  .put((req, res) => {
+    Theater.findOneAndReplace({ _id: req.params.id }, req.body, {
+      new: true,
+    }).then((theater) => res.send(theater));
   });
 
 app.listen(port, () => {
