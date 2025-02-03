@@ -1,27 +1,28 @@
 const mongoose = require("mongoose");
 
 const bookSchema = new mongoose.Schema({
-  name: { type: String, required: true, index: true }, //using ndex
+  name: { type: String, required: true, index: true },
+  author: { type: String, required: true }, // Ensure author field is defined
 });
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true, minlength: 3, maxlength: 50 }, // minimum caractres is 3 and maximum is 50
+  name: { type: String, required: true, minlength: 3, maxlength: 50 },
   email: {
     type: String,
     required: true,
     unique: true,
-    index: true, //using index
-    match: [/.+\@.+\..+/, "Please fill a valid email address"], // put a correct 
+    index: true,
+    match: [/.+\@.+\..+/, "Please fill a valid email address"],
   },
   password: {
     type: String,
     required: true,
-    minlength: 8, // Password must be at least 8 characters
+    minlength: 8,
   },
 });
 
 const theaterSchema = new mongoose.Schema({
-  theaterId: { type: Number, required: true, index: true }, //using ndex
+  theaterId: { type: Number, required: true, index: true },
   location: {
     address: String,
     city: String,

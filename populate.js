@@ -13,11 +13,23 @@ const sampleBooks = [
 ];
 
 const sampleUsers = [
-  { name: "MR.PAUL CHAPMAN", email: "userone@example.com", password: "Password1" },
+  {
+    name: "MR.PAUL CHAPMAN",
+    email: "userone@example.com",
+    password: "Password1",
+  },
   { name: "MR.BRYAN", email: "usertwo@example.com", password: "Password2" },
   { name: "RAMZI", email: "userthree@example.com", password: "Password3" },
-  { name: "MOHAMED HAMOUDA", email: "userfour@example.com", password: "Password4" },
-  { name: "MOUSTAFA ALANI", email: "userfive@example.com", password: "Password5" },
+  {
+    name: "MOHAMED HAMOUDA",
+    email: "userfour@example.com",
+    password: "Password4",
+  },
+  {
+    name: "MOUSTAFA ALANI",
+    email: "userfive@example.com",
+    password: "Password5",
+  },
 ];
 
 const sampleTheaters = [
