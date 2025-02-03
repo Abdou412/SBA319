@@ -91,6 +91,39 @@ app.route("/theaters/:id").delete((req, res) => {
   Theater.findByIdAndDelete(req.params.id).then((theater) => res.send(theater));
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(port, () => {
   console.log(`Server is running on :${port}`);
 });
